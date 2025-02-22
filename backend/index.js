@@ -41,12 +41,13 @@ app.post("/create-preference", async (req, res) => {
         },
       ],
       back_urls: {
-        success: "http://localhost:5173/success",
-        failure: "http://localhost:5173/failure",
-        pending: "http://localhost:5173/pending",
+        success: "https://keep-it-flowing.vercel.app/success",  // Cambia por la URL de tu sitio en Vercel
+        failure: "https://keep-it-flowing.vercel.app/failure",  // Cambia por la URL de tu sitio en Vercel
+        pending: "https://keep-it-flowing.vercel.app/pending",  // Cambia por la URL de tu sitio en Vercel
       },
       auto_return: "approved",
     };
+    
 
     const response = await preference.create({ body: preferenceData });
     res.json({ id: response.id });
