@@ -23,7 +23,7 @@ function CheckoutMercadoPago({ title, price, quantity = 1 }) {
     checkoutButton.addEventListener("click", async () => {
       try {
         const response = await fetch(
-          "https://keep-it-flowing-gn8d69tw5-lucios-projects-73e69f37.vercel.app/create-preference",
+          "https://keep-it-flowing.vercel.app/create-preference",
           {
             method: "POST",
             headers: {

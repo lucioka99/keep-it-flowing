@@ -1,5 +1,4 @@
 // backend/index.js
-
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -16,8 +15,15 @@ const client = new MercadoPagoConfig({
 });
 const preference = new Preference(client);
 
+// Configurar CORS para permitir solicitudes desde localhost:5173 y Vercel
+const corsOptions = {
+  origin: [process.env.REACT_APP_FRONTEND_URL, process.env.NEXT_PUBLIC_SITE_URL], // Usar las variables de entorno
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"],
+};
+
 // Middlewares
-app.use(cors());
+app.use(cors(corsOptions));  // Usar la configuración de CORS
 app.use(express.json());
 
 // Ruta para crear una preferencia
@@ -41,14 +47,13 @@ app.post("/create-preference", async (req, res) => {
         },
       ],
       back_urls: {
-        success: "https://keep-it-flowing.vercel.app/success",  // Cambia por la URL de tu sitio en Vercel
-        failure: "https://keep-it-flowing.vercel.app/failure",  // Cambia por la URL de tu sitio en Vercel
-        pending: "https://keep-it-flowing.vercel.app/pending",  // Cambia por la URL de tu sitio en Vercel
+        success: `${process.env.NEXT_PUBLIC_SITE_URL}/success`, // Usar la URL de producción
+        failure: `${process.env.NEXT_PUBLIC_SITE_URL}/failure`, // Usar la URL de producción
+        pending: `${process.env.NEXT_PUBLIC_SITE_URL}/pending`, // Usar la URL de producción
       },
       auto_return: "approved",
     };
     
-
     const response = await preference.create({ body: preferenceData });
     res.json({ id: response.id });
   } catch (error) {
