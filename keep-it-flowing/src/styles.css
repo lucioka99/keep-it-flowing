@@ -1,0 +1,318 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: white;
+  }
+  
+  .navbar {
+    background-color: #1e1e2e;
+    padding: 16px;
+    display: flex;
+    align-items: center; /* Asegura que todo esté alineado verticalmente */
+    justify-content: space-between; /* Separa el logo de los enlaces */
+    gap: 24px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    height: 80px; /* Ajustá según necesites */
+    display: flex;
+    align-items: center; /* Asegura que los elementos estén alineados verticalmente */
+    padding: 0 20px; /* Ajusta el espacio interno */
+  }
+
+  
+  
+  .navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 16px;
+    border-radius: 8px;
+    transition: background 0.3s;
+  }
+  
+  .nav-links a:hover {
+    background-color: #4c4c6d;
+  }
+  
+  .logo-navbar {
+    height: 130px !important; /* Aumentamos el tamaño y usamos !important */
+    width: auto; /* Mantiene la proporción */
+    margin-left: 10px;
+  }
+  
+  
+  .nav-links {
+    display: flex;
+    gap: 24px;
+  }
+  
+  .navbar img {
+    height: 40px; /* Tamaño uniforme con .logo-navbar */
+  }
+  
+  
+  
+  
+  .page-container {
+    width: 100vw; /* Asegura que ocupe todo el ancho de la pantalla */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 0px 0px;
+    margin: 0; /* Resetear márgenes */
+  }
+
+  .hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Forzamos altura de la sección */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  /*.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Aseguramos que ocupe toda la pantalla */
+    /*background-image: url("assets/imagen.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(0.5);
+    z-index: 0;
+  } */
+  
+  
+  .hero-section h1, .hero-section p {
+    position: relative;
+    z-index: 1; /* Nos aseguramos de que el texto esté sobre la imagen */
+  }
+  
+
+  @keyframes glow {
+    0% { text-shadow: 0 0 10px #ff0303, 0 0 20px #000000, 0 0 30px #000000; }
+    50% { text-shadow: 0 0 20px #e80a0a, 0 0 30px #000000, 0 0 40px #000000; }
+    100% { text-shadow: 0 0 10px #ff0e0e, 0 0 20px #010000, 0 0 30px #000000; }
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+
+  .hero-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 5rem; /* Bien grande */
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #ffffff; /* Color llamativo */
+    text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
+    margin-bottom: 50px; /* Más espacio abajo */
+    animation: glow 1.5s infinite alternate, float 3s ease-in-out infinite; /* Hace que el efecto vaya y vuelva */
+    
+  }
+  
+
+  
+
+  
+  h1 {
+    font-size: 40px;
+    color: #a855f7;
+    text-align: center;
+    width: 100%;
+  }
+
+
+  
+  
+  button {
+    margin-top: 20px;
+    background-color: #8b5cf6;
+    color: white;
+    font-size: 18px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  button:hover {
+    background-color: #6d28d9;
+  }
+  
+  /* Eliminar márgenes y evitar scroll lateral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    width: 100%;
+    overflow-x: hidden; /* Evita el scroll horizontal */
+    background-color: #1e1e2e; /* Asegura que el fondo sea uniforme */
+  }
+
+  .countdown-text {
+    position: relative;
+    z-index: 1;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff; /* Amarillo vibrante */
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  }
+  
+  .countdown-text span {
+    display: inline-block;
+    min-width: 80px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+
+
+  .countdown-container {
+    width: fit-content; /* Ajusta el ancho al contenido */
+    height: fit-content; /* Ajusta la altura al contenido */
+    padding: 5px 10px; /* Reduce el espacio interno */
+    background: rgba(0, 0, 0, 0.5); /* Mantiene la opacidad si la necesitas */
+    border-radius: 10px; /* Opcional, para esquinas redondeadas */
+    display: flex; /* Organiza los elementos */
+    gap: 10px; /* Espacio entre los elementos del contador */
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .countdown-item {
+    padding: 4px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde sutil en los números */
+    border-radius: 12px; /* Bordes redondeados en cada número */
+    background: rgba(0, 0, 0, 0.6); /* Fondo sutil en cada número */
+    box-shadow: 0 0 4px rgba(255, 255, 0, 0.2); /* Un poco de resplandor solo en los números */
+  }
+
+  
+  .countdown-box {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff0000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  }
+  
+  .countdown-label {
+    font-size: 0.9rem;
+    color: #ddd;
+    margin-top: 5px;
+  }
+
+  
+  .event-logo {
+    width: 250px; /* Aumenta el tamaño */
+    height: auto; /* Mantiene la proporción */
+    display: block;
+    filter: brightness(0) invert(1); /* Si querés que sea blanco en fondo oscuro */
+    transform: scale(2.0); /* Ajusta el tamaño del logo */
+    object-fit: contain;
+    
+  }
+  
+  .logo-container {
+    height: 80px; /* Mantiene proporciones */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%; /* Evita que el contenedor se agrande más de lo necesario */
+  }
+
+  
+  .countdown-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 20px;
+  }
+  
+  /* Contenedor del botón */
+  .ticket-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px; /* Ajustá este valor para que quede más arriba o abajo */
+    position: relative; /* Si lo querés dentro de la imagen */
+    z-index: 10;
+  }
+  
+  .ticket-button {
+    background-color: #ff0000; /* Amarillo dorado */
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+   
+  }
+  
+  .ticket-button:hover {
+    background-color: #FFC107 !important;
+    transform: scale(1.05); /* Efecto de agrandamiento */
+  }
+
+  /* CARRUSEL */
+
+  .background-carousel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+  }
+  
+  .carousel-image {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+  }
+  
+  .carousel-image.active {
+    opacity: 1;
+  }
+
+ 
+  
